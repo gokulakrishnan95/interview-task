@@ -9,28 +9,27 @@ appRoot.controller('indexCtrl', ['$scope',  function ($scope) {
     $scope.userslist =
         [
           {
-            "Value": "1",
-            "Key": "Rahul",
+            "id": "1",
+            "name": "Rahul",
           },
           {
-            "Value": "2",
-            "Key": "Sudan",
+            "id": "2",
+            "name": "Sudan",
           },
           {
-            "Value": "3",
-            "Key": "Mayank",
+            "id": "3",
+            "name": "Mayank",
           },
           {
-            "Value": "4",
-            "Key": "Arunraj",
+            "id": "4",
+            "name": "Arunraj",
           }
 
 
         ]
 
     $scope.user = {
-        "Value": "1",
-            "Key": "search",
+          "name": "search",
     };
 
  

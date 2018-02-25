@@ -5,19 +5,19 @@ angular.module('angular-select', []).directive('selectdirective', function ($roo
         scope: {
             values: "=",
             selecteditem: "=",
-            key: "@",
+            name: "@",
             onscroll: "&",
             totalrecords: "="
         },
 
         template: `<div class="selectdirective col-lg-4" uib-dropdown keyboard-nav="true" auto-close="outsideClick" ng-class="{ active: showList }">
         <button type="button " ng-click="showdropdown=!showdropdown;" aria-label="Left Align" class="btn btn-primary btn-block" uib-dropdown-toggle>
-					{{selecteditem[key]}} <span class="caret"></span>
+					{{selecteditem[name]}} <span class="caret"></span>
 		</button>
               
                 <div class="search dropdown col-lg-12" uib-dropdown-menu role="menu" ng-show="showdropdown">
                     <div uib-dropdown-menu class="input-group">
-                        <input type="text" ng-model="searchKey" class="form-control" placeholder="Type 3 characters to start search" ng-change="textChanged(searchKey)">
+                        <input type="text" ng-model="searchKey" class="form-control" placeholder="Type to search" ng-change="textChanged(searchKey)">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button"><i class="glyphicon glyphicon-search"></i></button>
                         </span>
@@ -25,8 +25,8 @@ angular.module('angular-select', []).directive('selectdirective', function ($roo
                                     
                 <ul class="dropdown list-unstyled option-list">       
                     <li ng-repeat="item in values | filter : searchKey" ng-click="selectItem(item)" ng-if="values.length > 0">
-                        <span>{{item[key]}}</span>
-                        <i class="glyphicon glyphicon-ok" ng-show="selecteditem[key] === item[key]"></i>
+                        <span>{{item[name]}}</span>
+                        <i class="glyphicon glyphicon-ok" ng-show="selecteditem[name] === item[name]"></i>
                     </li>
                     <li ng-if="values.length == 0">
                         No Records
@@ -44,7 +44,7 @@ angular.module('angular-select', []).directive('selectdirective', function ($roo
             };
 
             scope.isActive = function (item) {
-                return item[scope.key] === scope.selecteditem[scope.key];
+                return item[scope.id] === scope.selecteditem[scope.id];
             };
 
          
